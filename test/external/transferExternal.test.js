@@ -8,8 +8,8 @@ describe('Transfer Controller', () => {
            const resposta = await request("http://localhost:3000")
                 .post('/transfer')
                 .send({
-                    from: "Natalia",
-                    to: "Wesley",
+                    from: "natalia",
+                    to: "wesley",
                     amount: 100
                     //Envia o que está no swagger
                 });
