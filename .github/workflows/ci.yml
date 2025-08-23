@@ -20,7 +20,7 @@ jobs:
         run: npm install
       - name: Executar testes
         run: npm test
-      - name: Subir a API
+      - name: Subir a API teste
         run: npm start &
       - name: Esperar a API estar funcionando
         run: sleep 5
