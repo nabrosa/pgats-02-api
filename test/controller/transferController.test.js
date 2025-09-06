@@ -4,9 +4,16 @@ const { expect } = require('chai');
 
 const app = require('../../app');
 
+const transferService = require('../../service/transferService');
+
 describe('Transfer Controller', () => {
     describe('POST /transfer', () => {
         it('Quando informo remetente e destinatario inexistente recebo 400', async () => {
+           //Mock
+           const transferService = require('../../service/transferService');
+           const transferServiceMock = sinon.stub(transferService, 'transfer');
+           transferServiceMock.throws(new Error('Usuário não encontrado'));
+           
             //abaixo diz que quer usar o supertest para fazer requisições na api (pq o app representa a api)
             const resposta = await request(app)
                 .post('/transfer')
