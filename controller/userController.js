@@ -15,7 +15,9 @@ exports.login = (req, res) => {
       return res.status(400).json({ error: 'Informe login e senha' });
     }
     const user = userService.loginUser(req.body);
-    res.json(user);
+    const { generateToken } = require('../service/authService');
+    const token = generateToken({ username: user.username });
+    res.json({ user, token });
   } catch (err) {
     res.status(401).json({ error: err.message });
   }

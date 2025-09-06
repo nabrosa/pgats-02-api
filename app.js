@@ -15,8 +15,9 @@ app.post('/register', userController.register);
 app.post('/login', userController.login);
 app.get('/users', userController.getUsers);
 
-// Transfer routes
-app.post('/transfer', transferController.transfer);
-app.get('/transfers', transferController.getTransfers);
+const authMiddleware = require('./middleware/authMiddleware');
+// Transfer routes protegidas
+app.post('/transfer', authMiddleware, transferController.transfer);
+app.get('/transfers', authMiddleware, transferController.getTransfers);
 
 module.exports = app;
