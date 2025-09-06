@@ -7,24 +7,38 @@ Esta API permite realizar operações de registro, login, consulta de usuários 
 - Express
 - Swagger (documentação)
 
+
 ## Instalação
 
 1. Clone o repositório ou copie os arquivos para seu ambiente local.
-2. Instale as dependências:
-   ```bash
-   npm install express swagger-ui-express
-   ```
+2. Instale as dependências para REST e GraphQL:
+  ```bash
+  npm install express@4 swagger-ui-express apollo-server-express@3 graphql jsonwebtoken
+  ```
+
 
 ## Como executar
 
-- Para iniciar o servidor:
+- Para iniciar o servidor REST:
   ```bash
   node server.js
+  ```
+- Para iniciar o servidor GraphQL:
+  ```bash
+  node graphql/server.js
   ```
 - Para importar o app em testes:
   ```js
   const app = require('./app');
+  // ou para GraphQL
+  const app = require('./graphql/app');
   ```
+## API GraphQL
+
+- Endpoint: `/graphql` (porta 4000 por padrão)
+- Playground: acesse `/graphql` no navegador para explorar e testar queries e mutations.
+
+Veja exemplos de queries e mutations no arquivo `graphql/README-graphql.md`.
 
 ## Endpoints
 
